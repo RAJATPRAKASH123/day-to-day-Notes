@@ -1,0 +1,140 @@
+* POSIX : standard shared memory multithreading interface.
+* Not just for parallel programming, but for general multithreaded programming.
+* Provide primitives for thread management and synchronization.
+* Threads are commonly associated with shared memory architectures and
+  operating systems.
+  - Necessary for unleashing the computing power of SMT and CMP processors.
+
+
+:: Pthreads execution model ::
+
+A single process can have multiple, concurrent execution paths.
+- a.out creates a number of threads that can be scheduled and run concurrently.
+- each thread has local data, but also, shares the entire resources (global data) of a.out.
+- Any thread can execute any subroutine at the same time as other threads.
+- Threads communicate through global memory.
+
+:: Advantages of Threads ::
+* Light-weight
+    - Lower overhead for thread creation
+    - Lower Context Switching Overhead
+        - Fewer OS resources
+* Shared State
+    - Don't need IPC-like mechanism to communicate between threads of same process.
+    
+:: Disadvantages of Threads ::
+* Shared State!
+    - Global variables are shared between threads. Accidental changes can be fatal.
+* Many library functions are not thread-safe
+    - Library Functions that return pointers to static internal memory. 
+    E.g. - gethostbyname()
+* Lack of Robustness
+    - Crash in one thread will crash the entire process.
+
+:: The Pthreads API ::
+* Three types of routines:
+    - Thread management : create, terminate, join and detach.
+    - Mutexes : mutual exclusion, creating, destroying, locking, and 
+                unlocking mutexes.
+    - Condition variables : event driven synchronization
+    - Mutexes and condition variables are concerned about synchronization.
+    - Why not anything related to inter-thread communication?
+* The concept of opaque objects pervades the design of the API. 
+
+:: The Pthreads API naming convention ::
+Routine Prefix           :   Function
+Pthread_                 :   General pthread
+Pthread_attr_            :   Thread attributes
+Pthread_mutex_           :   mutex
+Pthread_mutexattr        :   mutex attributes
+Pthread_cond_            :   Condition variables
+Pthread_condaddr         :   Conditional variable attributes
+Pthread_key_             :   Thread specific data keys
+
+:: Thread management routines ::
+* Creation : pthread_create
+* Termination : 
+    - Return
+    - Pthread_exit
+    - Can we still use exit?
+* Wait (parent/child synchronization) : pthread_join
+* Pthread header file < pthread.h>
+* Compiling pthread programs: gcc -lpthread aaa.c
+
+:: Creation ::
+* Thread equivalent of fork()
+
+* int pthread_create(
+    pthread_t * thread, 
+    pthread_attr_t * attr,
+    void * (*start_routine)(void *),
+    void * arg
+);
+
+* Returns 0 if OK, and non-zero (> 0) if error.
+* Parameters for the routines are passed through void * arg.
+  - What if we want to pass a structure?
+
+:: Example of thread creation ::
+
+main()       |
+             |
+pthread_     |-----------| func()
+create(func) |           |
+             |           |
+pthread_     |-----------|pthread_exit()
+join(id)     |
+
+:: Termination ::
+
+Thread Termination 
+    - Return from initial function
+    - void pthread_exit(void * status)
+
+Process Termination
+    - exit() called by any thread
+    - main() returns
+
+:: Waiting for child thread ::
+* int pthread_join(pthread_t tid, void **status)
+* Equivalent of waitpid() for process
+
+:: Detaching a thread ::
+* The detached thread can act as daemon thread
+* The parent thread doesn't need to wait
+* int pthread_detach(pthread_self())
+
+:: Matrix multiply and threaded matrix multiply ::
+* Matrix multiply : C = A X B
+    C[i, j] = Sum(k : 1 to n) A[i, k] x B[k, j]
+
+* Sequential Code : 
+    for (i = 0; i < N; i++):
+        for (j = 0; j < N; j++):
+            for(k = 0; k < n; k++)
+                C[i,j] = C[i,j] + A[i, k] * A[k, j]
+
+* Threaded Code Program : 
+    params : N, nthreads, myid
+    * I am responsible for sub-array
+        C[0..N-1][N/Nthreads*myrank ..N/Nthreads*(myrank+1)-1]
+    - calculaion of c[I, j] does not depend on other C term.
+    Mm_pthread.c
+
+* Fork-join model for executing threads in an application : 
+                    |
+                    | Master thread
+                    v
+    ----------    FORK   -----------
+    |       |       |       |       |
+    |       |       |       |       |
+    |       |       |       |       |  Parallel region
+    |       |       |       |       |
+    V       V       V       V       V
+    ----------    JOIN   -----------
+                    |
+                    |
+                    |
+                    V
+
+:: What does the developer have to do? ::

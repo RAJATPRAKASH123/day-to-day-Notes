@@ -1,0 +1,12 @@
+x :  i.e. heavy or light
+
+w : class of fish i.e. salmon or seabass
+
+p(x) : evidence
+
+p(w) : prior probability
+
+p(x | w) is given, bcoz it might be known by other experiments, generalized prob.
+
+p(w | x) : we have to find, i.e. given this situation, what are the chances of 
+            having heavy or light fish (might help pre-ordering Can for supply)

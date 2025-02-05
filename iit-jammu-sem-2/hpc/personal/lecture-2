@@ -1,0 +1,158 @@
+1: Overview
+2: Limitation on Single Processor Performance
+3: Concept of Multiprocessing
+4: Various Courses on Multiprocessing
+5: Flynn's Taxonomy
+6: Measuring Performance
+7: Amdahl's Law
+
+: Parallel Solution : Ideally Two Ways for High Performance
+- Work/Functional/Task Partitioning:
+  Different Processors executing different tasks
+- Domain/Data Decompostion:
+  Different Processors solving same global task on smaller subsets
+
+: What is a computer? :
+- Von Neumann Architecture
+  CPU : Process instrns.
+    - Register
+    - ALU
+    - Control Unit
+  Memory / RAM : stores Data & Instructions
+    - memory is "flat" consecutive locations
+    - access on any location has always the same cost
+  One CPU , One Memory & One Input/Output units:
+
+: Assumptions in Algorithm Design : 
+- 1 instruction/unit time
+- Access to memory has same cost as any other Arithmetic/Logic opern.
+
+NOTE : Processor Performance scaling has reached its Limits
+
+: Concept of Multiple Processors : 
+
+Multiprocessing : multiple processors working together
+                  - same chip or across different chips
+
+on same chip : chip multi-processor(CMP) or 'core'
+on same board(Motherboard): 
+  - may share same memory
+  - may exchange data via message passing via (preferably, synchronous) 
+    communication systems.
+
+
+: Computer Cluster - Page 1 :
+What is a computer cluster?
+- Set of computers working together can be viewed as a single system.
+- Each node may perform the same task, controlled and scheduled by software.
+
+: Components & Working prniciples :
+- Each node(computer as a server) running its own instance of an operating system.
+- nodes use the same hardware and the same OS.
+- The components of a cluster are usually connected to each other through fast
+local area networks.
+- Possible to have different hardware and OSs.
+
+Usages - Advantages
+* Usually deployed to improve performance and availability.
+* Much more cost-effective than single computers of comparable speed or availability.
+
+Some Important Terms - Single & Multi-User Systems
+
+Single-User system 
+------------------
+A system that allows only one user to perform task.
+Single User system can be Single-Tasking or Multi-Tasking.
+
+* Single User/Single Tasking : 
+
+* Single User/Multi Tasking : 
+
+* Multi User :
+
+: Symmetric vs Asymmetric MULTIPROCESSING... : 
+
+Symmetric processsing : All machines are considered equal.
+Asymmetric processing : All machines are not considered equal.
+
+Symmetric Multiprocessors : All processors are same.
+                            All consituent processing elements are same.
+
+Hybrid computing : System that has more than one kind of processors or cores.
+
+Strong vs Loosely Coupled Multiprocessing : 
+
+Loosely coupled multiprocessing : running multiple unrelated programs in parallel on a multiprocessor.
+Strongly coupled multiprocessing : running a set of programs in parallel that share
+                                   their data, code, file and network connections.
+
+Shared Memory : All the programs share the virtual address space.
+Message Passing : Programs communicate between each other by sending and 
+                  receiving messages. Do not share memory addresses.
+
+Parallel Processing : same clock & control.
+- Parallel Architecture
+- Parallel Algorithms 
+
+Distributed Systems and Processing : 
+- Not colocated
+- No common clock & control
+- All machines are somehow independent, but all are participating for a common goal
+
+Distributed System Architecture : ??
+- How various machines are connected & OS on top of it.
+- How are they communicating? Invoking methods from one machine to another and so on.
+
+Distributed Computing :
+- Algorithms required to build and maintain distributed architecture and environment.
+- Maintaining concurrency of components, overcoming the lack of global clock.
+- All communication related algorithms
+- Providing mutual exclusions, leader election, coming up with concensus decision.
+- Algorithms for fault-tolerant execution.
+
+Distributed Algorithms : 
+  Precondition -
+    - Distributed system already in place.
+    - We are trying to write (Applications) algorithms which can use this distributed
+      system to solve problems.
+    - We assume underlying distributed system provides fault-free communication, mutual exculsions.
+
+  Contents -
+    - Algorithms may depend upon timing behaviour of various machines.
+      asynchronous, synchronous, semi-synchronous
+    - Graph algorithms for Large graphs
+    - Sorting algorithms for data distributed over multiple systems
+
+Fault Tolerant Computing :
+Fault tolerance refers to ability of a system(computer, network, cloud, cluster, etc)
+to continue operating without interruption when one or more of its components fail. 
+ - multiple processors are NOT used for high-performance, but used to achieve 
+   correct result regardless of faults in the system.
+ - objective - improve reliability using multiple systems.
+
+              :: Flynn's Taxonomy :
+
+Flynn's Classification :
+* Instruction Stream : Set of instructions to be executed.
+* Data Stream : Set of Data values.
+
+Conceptually 4 types of multiprocessors :
+_______________
+| SISD | SIMD |
+| MISD | MIMD |
+---------------
+
+SISD : 
+  - standard uniprocessor
+  - Just Von Neumann Architecture
+  - No multiprocessing opportunity
+
+SIMD : 
+  - One instruction operates on multiple pieces of data.
+  - Vector processors have one instruction that operates on many pieces of data in parallel.
+  - Example, one instruction(say, sqr) can compute the square of 4 values in parallel.
+
+MISD :
+  - Not used for high performance
+  - Used for safety-critical/ fault tolerant/ high-precision systems.
+  - Usage 

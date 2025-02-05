@@ -1,0 +1,19 @@
+Parameter Estimation technique
+
+Which parameter???
+
+likelihood - probability of occurence ...
+
+P(mu_i, sigma_i| x= k) <---- this is likelihood
+
+Maximum likelihood Estimation
+
+theta_j is parameter i.e. (mu_j, sigma_j)
+
+
+Next is Bayes Parameter Estimation
+
+How to calculate likelihood / log likelihood???
+- Numerical question
+
+

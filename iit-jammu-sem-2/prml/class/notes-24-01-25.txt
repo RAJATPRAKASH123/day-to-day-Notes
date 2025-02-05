@@ -1,0 +1,22 @@
+:::  Bayesian Decision Theory :::
+
+lambda(alpha_i|w_j)
+
+Risk : Loss is 
+
+Conditional Risk
+
+:: Minimum Error Rate Classification ::
+
+* Given 'c' classes
+* Action alpha_i is usually interpreted as the decision that the true state of nature is wi(predicted class).
+* If action alpha_i is taken and the true state of nature is wj, then 
+    - the decison is correct if  i == j, and in error i != j.
+* Then so-called symmetrical or zezo-one loss function can be defined as ;
+    R(alpha_i|x)= sigma of Lambda(alpha_i|w_j). P(w_j|x)
+
+
+Bayes Decision theorem => Risk/Loss associated with incorrect Classification.
+
+
+gi(x) -> vi

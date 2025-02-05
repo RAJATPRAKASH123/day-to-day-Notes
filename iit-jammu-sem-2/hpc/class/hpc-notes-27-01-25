@@ -1,0 +1,22 @@
+:: Prefix-Sum/ Cumulative Sum Computation ::
+
+:: Missing and Duplicate Values in Array ::
+
+If CW not possible, only EW
+
+Hashing is costly, 
+main problem with Hashing is that if number is continuous hashing is very bad.
+
+Sigma(*, 20) = {...all strings with <20 i.e. 2^20 }
+--- in this case, no hash function in the world works in this case properly.
+S << Sigma* then only hashing works.
+
+
+In case of Finding duplicate : 
+    if more than one processor, 
+
+In exam : Cost optimal for the Find duplicate question??? in CW
+
+Parallel Prefix Compution : 
+RICHARD E. LADNER AND MICHAEL J. FISCHER
+

@@ -1,0 +1,27 @@
+:: Section 2 :: Perfect Secrecy and Stream Ciphers
+
+Modifying Shift Cipher(Restricted)
+
+M = CT = {(x1, x2, ... xl): xi belongs to {0, 1}} <-> Z2 ^ l
+Eki(xi) = (xi ⊕ ki)
+Dki(yi) = (yi ⊕ ki)
+
+Secure? 
+  - YES, provided all ki are sampled uniformly at random.
+  - i.e. Uncoditionally secure if all ki are sampled uniformly at random.
+
+  E ∩ F = φ: E can’t happen if F. Strongly dependent.
+
+
+Secrecy ? 
+    - Given ct, it is hard to gather information about m
+      even for an unbounded adversary
+
+  Pr[m|ct] = Pr[m] ∀m ∈ M, ct ∈ Ct
+
+
+      :: PRBG ::
+    -------------
+So, can we say PRBG random number is provably secure random number?
+▶ Good: seed is much smaller than message.
+▶ Not so Good: No perfect secrecy. Security of PRBG is important.

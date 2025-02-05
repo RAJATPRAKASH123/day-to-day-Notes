@@ -1,0 +1,60 @@
+:: Hashing and Message Authentication ::
+
+digest or hashing algorithm 
+
+md5 hash
+
+hash of .exe and hash on website should be same - determines how safe it is.
+
+but, nowadays its not used. because we have https, i.e. we will be directly downloading
+things from safe server
+
+
+E(K, (M || H(M)))
+
+|| <- concatenation
+
+Hashing alone doesn't provide integrity.
+
+Hashing alone doesn't provide 
+
+I have hashed mobile number using 
+
+challenge : given this hash, find phone number..
+
+phone number to sha256 <- its not that tough using brute force
+
+phone number brute forced from aadhaar qr
+
+sir experienced malloc without free in his job,
+
+mobile S4 Samsung runned well, but when youtube opened up
+it led to rebooting whole system.
+
+-- linux kernel should stop the driver.
+
+-- it is not missing the vulnerability, this is fault.
+
+-- vulnerability : weakness of the system
+
+:: DIGITAL SIGNATURE ::
+
+protects from non-repudiation
+
+tls and internet is based on digital signature.
+
+nonce - kon sa request send kraa, konsa wala response aaya
+i.e. challenge response protocol for friendship
+
+Ks - session key
+IDa - Identity of A
+
+N2 <- need Ks
+f(N2) <- need N2
+
+-- again third party has Ks
+
+biggest problem with password is - if you have someone's 10 password, you can 
+predice the individual's other passwords.
+
+library attack???

@@ -1,0 +1,27 @@
+--- One time Pad ---
+
+Good - Achieves Perfect Secrecy.
+Bad - Keyspace is large as the plaintext space.
+
+VERNAM CIPHER - 
+
+
+
+Gen() -> (k1, ... k1000)
+         "unpredictable"
+
+what if we sample key uniquely...
+
+Stream Cipher ::
+
+Synchronous stream cipher : No error propagation
+
+
+Asynchronous stream cipher : 
+key k
+
+
+---k---> |f|
+   |      |
+   |      --------->
+   |-------->|g|

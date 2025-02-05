@@ -1,0 +1,128 @@
+PR(B)G(k)  ----------> z1 z2 z3
+
+OTP(k)                --------->               (k1 || k2)               k1 = (k1[1], k1[2]) = k = (k[1], k[2])
+    k belongs to {0, 1}^2               k1, k2 belongs to {0,1}^2       k2 = (k[1]xork[2], k[1] . k[2])
+m xor k1                                (m1 xor k1, m2 xor k2)
+
+
+NOTE : In above, we can guess k2 given k1
+
+
+PRG(k) -> (z1, z2, z3, z4)
+
+
+
+Can A1 predict zi+1? i.e.
+
+A1(z1 z2 z3 ... zi ) --> zi+1 ???
+
+
+Unpredicability Game 
+                     y1 y2....yl belongs toR {0,1}^k
+A2(y1 y2 y3 ... yl : z1 z2 ... zl <---- PRG(s) where s belongs toK {0,1}^t )
+
+Given : zi = {0,1}^k
+
+   Unpredicability                                   Indistinguishability
+
+C                                   A         C                               A
+s belongs toK {0,1}^t                       s belongs toK {0,1}^t                           
+G(s) --> z1 z2 z3 z4... zl 
+         
+            z1 z2 ... zi
+         -------------------->
+            yi+1
+            <------
+    A wins if yi+1 == zi+1
+
+
+
+1. If G has indistuinguishable => G has unpred?
+        <==> (using contrapositive)
+    True
+2. If G has unpred => G has Indistinguishability
+    Its also True (but tough to think of)
+
+
+
+             C               B               A
+
+
+       (x1 x2 x3)
+b = 0  ----------
+       (y1 y2 y3)
+
+b = 1  --------->
+       y1 y2 y3
+
+
+RC4 Stream Cipher
+``````````````````
+1994, anonymously leaked to cyberpunks mailing list.
+Broken in few days.
+
+Nowdays WPA, before it was WEP
+
+
+Research Paper = Subhamoy Moitro <- he broke a lot of versions of RC4
+
+Wired Equivalent Privacy (WEP) --
+
+
+
+BinAddit.StreamEnc(k, m ) --> G(k) + m1
+                            ------
+                            Here, RC4 used in WEP, in case of PRG
+                            i.e. RC4(k) xor m
+                iv1, m xor RC4(k)||v1
+                iv2, m xor RC4(k)||v2
+                
+|| -> this is concatenation
+
+KeyGen(k) ->
+
+Enc(k, m) -> ((m || CRC(m)) xor RC4(iv || k), iv)        ; iv : Initialization Vector {0, 1}^24
+
+Dec(k, ct) : ct1 xor RC4(iv || k) = (m || z)
+            if CRC(m) ?= z true, 
+                accept m
+            o/w reject
+
+Birthday Paradox, getting same IV i.e. IV collision = 1/(2^12) instead of 1/(2^24)
+
+
+
+B                                                           A
+ct* = (m* || CRC(m*)) xor RC4(iv* || k), iv*
+---------------------------------------------->
+                                                (0, v*)
+                                        <--------------
+
+ct = (0 || CRC(0)) xor RC4(iv* || k) , iv*
+---------------------------------------------->
+
+Right part of LHS will be cancelled out, and we will have m* if collision happened
+
+m1 ---> vi*
+
+m2 ----> vi*
+
+
+Now, Data Integrity of WEP ???? NO, because changed message getting received but receiver doesn't even know
+ 
+    -------------ct1-------------, --ct2--
+ct = (m || CRC(m) xor RC4(iv || k)) , iv )
+
+ct xor (delta || CRC(delta))        , 0 ) =  (m xor delta || CRC(m xor S)) xor RC4(iv || k ), iv
+
+Dec(ct* = (ct1*, ct2*), k);
+(m xor delta || CRC(m xor delta))  = ct1* xor RC4(iv || k) = (M||z)
+
+CRC(M) ?= z ?
+        accept
+
+WEP : Not chosen ciphertext attack secure
+
+CCA : if you change the cipher text ,you will be caught.
+
+=> Weakest link determines the security.

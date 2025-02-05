@@ -1,0 +1,35 @@
+You have to make sure that, you should not use concurrent write.
+Although, we are doing parallel programming, you are not writing all of them in parallel.
+So, be selective and choose wisely for parallel programming.
+
+
+Amdahl's Law :
+
+
+Discussed speed-ups
+
+don't use barrier, don't use single..., use them as less as possible.
+
+NOTE : we should try making most of the code efficient...
+
+HW : solve the problems in the slides
+
+
+while a < 0 is better than while a == -1 ( Reason : Assembly )
+
+Optimal number of processors for summing an array : log n or n/log 
+
+We should solve the problem for all PRAM models.
+
+
+We can find the minimum in the tree like processing : so log n time 
+
+finding cost optimality but not reaching at the result??? - sir
+
+Q : Missing and Duplicate values question.
+- need to use bitwise operator(usually associative ones)
+
+
+Brent's Scheduing Principle - not important for course
+
+puchi :)

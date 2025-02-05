@@ -1,0 +1,43 @@
+don't do sleep, rather keep it busy waiting.
+
+sleep will put the threads in waiting queue. (more than 10 seconds...)
+
+In case o
+
+Synchronization methods :
+
+our objective : 
+
+c[i] = a[i] + b[i]
+
+#pragma omp parallel num_threads(8)
+for (int i = 0 to 100){
+    c[i] = a[i] + b[i];
+}
+
+
+I set num_threads = 8
+#pragma omp for static          or you can also use #pragma omp for dynamic
+for (int i = 0 to 100){
+    c[i] = a[i] + b[i];
+}
+
+On putting busy wait in both the dynamic and static execution and found :
+1. Busy wait in 
+
+lastprivate with shared
+
+if atomic operations, what will happen? - Chaitanya
+
+#pragma omp critical - Meet
+
+critical - akhilesh
+
+reduction - whose?
+
+NOTE : Don't  do implicit things, do explicit things
+
+if there are two threads 
+
+critical - 
+atomic - for one instruction

@@ -1,0 +1,79 @@
+
+Q) synchronization in distributed algorithms?
+- Tough to use clocks
+
+Binary additive Stream Cipher
+
+If we consider  finite fields - 
+
+CT = K = M = Zn 
+What if its not Zn, but n = 2 ^ l here.
+
+k = (k1, k2, ... kl)
+m = (m1, ... ml)
+
+Enc(k, m) -> (k+m) mod n
+          but, now ct = (ki xor mi)
+          (k1 xor m1, ... kl xor ml)
+
+Dec(ct, k) ->
+          (ct1 xor k1, ... ctl xor kl)
+
+
+PRBG(k) -> (z1 , z2, z3 , ....)
+          xor   xor  xor
+           ct1, ct2, ct3
+
+PRBG is a deterministic algorithm,
+
+this PRBG algorithm will generate zi's which will be unpredictable.
+
+
+We can do -
+
+PRG - {0, 1}^n ---> {0,1}^2n
+
+From where did this k came? Why can we take the k as random or pseudo-random.
+
+G(k) -> (k1, k2)
+
+
+Von Neumann worked on Random Number Generation : 
+Biased coin
+p(H) = p
+p(T) = 1-p
+Now, use HT and TH ...
+
+
+
+OTP vs Stream Cipher -
+
+zi should looks random to polynomial time adversary
+
+Q) Why are we looking on Polynomial time complexity?
+
+G(k)                             -->     (z1, z2)
+determin.
+and sample uniformly random k
+
+Q) Why we won't get information theoretic?
+- Because, maybe we will get partial information...
+
+Hint : Perfect Secrecy came from equi-probable property of 
+12 = m + k mod 26
+as, P(k=10) = 1/26 = P(k=15)
+
+But, in case of G(k) --> (z1, z2) [as we are using deterministic algorithm, so the algorithm is guessable, not random]
+
+Answer lies in Statistical distance... ; check Complexity theory book
+
+   m1'  +  k
+-------------->
+   m21' + 
+
+
+
+NOTE : One Time Pad has always 
+
+
+Information Security wala banda : Can talk exponentially to the guy.

@@ -1,0 +1,56 @@
+Reference Page : 71 in William Stallings 
+
+Feistal said we can have a key length of k bits and a block length of n bits, 
+Which helped in future for the idea of SPN
+
+* Diffusion : statistical structure ....
+
+problem it is solving : patterns of plaintext in ciphertext
+
+yn depends on all i letters from i to k.
+i.e. so many plaintext letter are calculaing 1 cipher text
+
+Diffusion => letter frequency will be more distributed.
+
+In case of block cipher, distribution is achieved via permuations and 
+then applying a function and then repeating the same process ...
+
+
+    
+
+* Confusion : using complex substituion algorithm
+
+problem it is solving - patterns of key in ciphertext can be cryptanalyzed.
+
+NIST recognized Fiestel and known as DES and was standard encryption.
+Further, it was breaked in 1999 in 10 hours.
+
+So, now DES in not recognized.
+
+NOTE : Learn working of Fiestal via example in book.
+
+-- the file is divided into multiple blocks
+-- every block is 128 bits...
+
+
+block size increases => diffusion increases
+bigger block => more computation
+key size increases => confusion increases and brute force increases
+more rounds => more complex cipher
+subkey generation algo => 
+
+:: DES  ::
+
+3 times DES gives 128 bits, it was also sufficiently strong
+
+expanision permutation , which can expand the permutation.
+
+
+Question : Perform the Encryption 
+        # XBoxes...
+
+
+how to assess randomness?
+whether its one round or two, how can we prove how much more randomness got 
+introduced in second round??? - Ask Sayantan Sir
+

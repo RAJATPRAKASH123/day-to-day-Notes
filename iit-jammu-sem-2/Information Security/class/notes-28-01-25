@@ -1,0 +1,32 @@
+Revise Feistal Cipher
+Task : understand permutation, expansion permutation,
+       what is the size of key(x) --expansion to --> 56 bits
+       divide into two 28 + 28, then ... then xor ...
+       block size : 64
+
+General Structure of DES : 
+
+NOTE : Whenever we talk about TLS, AES comes
+
+AES works on plaintext block of 128
+
+Substitute Bytes
+shiftRows
+MixColumns
+AddRoundKey (- a xor operation ,  subkey generated)
+
+i.e. every round has a new key
+
+A word is 4 bytes here in DES.
+
+Extension Field -- EA
+
+g is comprised of : 
+1. RotWord : B0, B1, B2, B3 --> B1, B2, B3, B0
+2. Subword : using S-Box 
+3. get Rcon[j] , then do xor
+
+
+4th word goes to function g
+
+

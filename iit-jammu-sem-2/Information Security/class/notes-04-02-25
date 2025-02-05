@@ -1,0 +1,29 @@
+Symmetric Key Exchange using Assymetric
+----------------------------------------
+
+
+A has public key of B
+B has public key of A
+
+In that case how will they do session key exchange???
+
+If A and B have key pairs based on Elliptic Curve Diffie-Hellman (ECDH)
+ or standard Diffie-Hellman (DH), they can perform a key exchange as follows:
+
+
+you can use time instead of Nonce. 
+Nonce, when you need challenge response.
+
+TLS 1.3 - 1RTT me share ho jate h
+
+Certificate authority - bind public key + identity
+
+challenge response on sites - ask for hash, so only admin can upload file
+
+highest level of trust at : root level.
+
+SMTPS - SMTP over TLS
+
+google is now root Certificate authority.
+godaddy is ''
+ 

@@ -1,0 +1,57 @@
+: High Performance Computing :
+- Ability to process data and perform complex calculations at high speeds.
+- interested in reducing start-to-end time(Wall time)
+- algorithms depends upon location of computing resources(co-located on chip, 
+on a machine, over a geographic region)
+
+: CPU time vs Wall Time :
+- CPU time :  time actually spent by CPU executing the code.
+- Wall time: real world time elapsed between a pair of events
+    - We would like to study how we can reduce the Wall time for a problem
+    - using multiple computing resources
+    - better way of partitioning the data and work 
+
+: Two Problems :
+- P1 : Given A[], B[]. Generate C i.e. C[i] = A[i] + B[i]
+- P2 : Find Sum of an Array A[]
+
+: Objervations & Solutions in Seq. : 
+P1 Sequential : add operations are independent of order
+P2 Sequential : add opertns. are dependent, but we we can change the order
+                by taking any permutations.
+
+: Objective & Expectation in HPC : 
+- reduce start-to-end time
+- speed up should be proportional to investment - without any limit
+
+: HPC Solutions :
+P1 : n/P additions are given to each processor.
+P2 : divide the array in P parts, 
+     each will have n/P nums
+     Now, n/P + 1 + 1 + ... 
+                            :how many times?:
+     speed UP < P 
+
+: Some more Problems : 
+P12 : Compute sum of values of A and B, each of size n.
+      A = Sum of A[] + Sum of B[]
+  :How to approach?:
+  - treat it as new problem
+  - use P1/P2
+      :P1, P2:
+        - First compute C[i] = A[i] + B[i], then S = Sum of C[]  
+      :P2, P1:
+        - First compute Sum of A[], and Sum of B[], then S = Sa + Sb
+
+: Apply P12 to solve P2? :
+- perhaps we can divide the array into two equal parts then apply P12 best soln. 
+
+: Other Simple Problems :
+DotP : dot product of two vectors i.e. dp = Sum of (A[i]* B[i]) for all i's
+PrefixSum : PrefixSum[i] = A[0] + A[1] + ... A[i]
+
+: Solutions :
+- DotP : First apply P1 (+ -> *), then use P2
+- PrefixSum: Too costly with P2 upto each ith
+
+: Rationalization of Expectations in HPC :

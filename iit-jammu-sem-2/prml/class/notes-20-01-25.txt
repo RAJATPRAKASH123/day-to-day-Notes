@@ -1,0 +1,47 @@
+PRML Notes : 20th Jan, 2024
+
+Probability types - 
+1.prior 
+2.joint 
+3.conditionakl 
+
+given feature =>
+
+ p(x|wj)= likelihood??????
+
+p(wj|x) = posterior
+
+posterior = likelihod/
+
+
+P(error|x) = P(w1|x) if we decide w2
+             P(w2|x) if we decide w1
+
+
+integ[-inf, inf] P(error, x) = integ[-inf, inf] P(error|x).P(x)
+
+P(error|x) = min[P(w1|x), P(w2|x)]
+
+
+
+::: Bayesian Decision Theory :::
+
+Let w1, ... wc <- c classes
+alpha1, alpha2, ... alphaa <- possible actions
+
+NOTE : 'alphai' means, it belongs to class 'wi'
+
+
+lambda(alphai | wj) <- loss funtion
+
+
+state conditional PDF -> (x, p(x|wj))
+
+Let's formalize it --
+
+
+Risk - R(alphai, X) = Sigma(j=1 to c) lambda(alphai|wj) P(wj|x)
+
+
+The likelihod ratio :
+

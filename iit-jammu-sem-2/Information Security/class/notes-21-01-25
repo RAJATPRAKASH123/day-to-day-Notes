@@ -1,0 +1,66 @@
+one time pad -> very secure but problem 
+    1. Practical problem of generating large keys frequently
+    2. Key size
+
+DES 
+
+
+SPN - Substitution Permutation Network - or Product Cipher
+
+Fistal          vs       SPN
+   |                      |
+half size             full size
+
+
+Product Cipher : combination of permutation and combination for multiple round
+
+Diffusion - set of characters of plaintext affect one of the character of ciphertext???
+Confusion - 
+
+
+Base of Transposition/Permutation
+
+Rail Fence technique --
+- if hacker knows the algorithm, brute force approach of depth and using NLP engine will be required.
+- better let's try using frequency analysis, as the alphabets are same.
+
+
+
+
+Substitution box given, permutation box also given.
+
+as key is getting fused in every round, even you know the algorithm, it doesn't help.
+
+
+# Steganography 
+
+easy to check whether an image contains a message or not. 
+- LSB decoder is there which can simply check the message.
+- limitation : bigger size will make the image suspicious.
+
+
+proprietary stegnography based algorithm are difficult.
+
+one time pad - symmetric ....
+
+des and aes - symmetric block ciphers
+
+symmetric cipher depends upon either 1. feistal cipher structure or 2. substituitno/permutatiton
+
+
+1. Feistal Cipher : 
+
+half of data
+
+
+Block cipher : take b bit...
+
+Motivation for Feistal Cipher -
+
+you have to do reversible mapping - Substitution 
+
+let's go with based substituion 
+
+
+# Diagram for n-bit-n-bit Block Substituion
+

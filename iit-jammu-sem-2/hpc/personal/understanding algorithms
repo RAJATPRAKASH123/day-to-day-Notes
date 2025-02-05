@@ -1,0 +1,36 @@
+
+
+# Proc       Count     Conf
+# P0    ---    1   ---  Y    : bcoz P0 exists
+# P1    ---    2   ---  N    : bcoz P1 < count 
+
+
+prevCount = 1
+count = 1
+i = 0 # i.e. Pi
+conf = "Yes"
+def checkExist(Pi):
+    return ""
+
+while True:
+    if pid == i and i == 0 and count == 1: # Init
+        conf = "No"
+        count = 2
+    elif pid == i and i < count - 1:
+        if conf == "Yes" and prevCount == count:
+            break
+
+        id = id*2 + 1
+        
+        if tid == id and checkExist(id * 2 + 1) == "No":
+            count = ( prevCount + count )//2
+        else:
+            i = 2*i + 1
+            
+            conf = "Yes"
+    elif pid == i :
+        conf = "No"
+        prevCount = count
+        count *= 2
+    else:
+        continue

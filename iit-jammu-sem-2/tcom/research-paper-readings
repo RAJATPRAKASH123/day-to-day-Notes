@@ -1,0 +1,65 @@
+* Parallel Integer Sort: Theory and Practice *
+
+we design a new
+integer sorting algorithm, DovetailSort, that is theoretically-
+efficient and has good practical performance.
+
+existing state of the art - parallel integer and comparison sorting algorithms
+
+As a special type of sorting, in-
+teger sorting algorithms can outperform comparison sorting
+algorithms by using the integer encoding of keys.
+
+Theoretical parallel IS algorithms
+with good bounds [2, 3, 7, 31, 41] are quite complicated, and
+we are unaware of any implementations of them. On the
+other hand, for the practical parallel IS solutions [5, 9, 43],
+we are unaware of “meaningful” analysis to explain their
+good performance for general 𝑟. 
+
+The best-known bounds for
+them, as discussed in [43], are 𝑂(𝑛log 𝑟)work (number of op-
+erations) and polylog(𝑟𝑛)span (longest dependence chain).
+
+NOTE :::
+Unfortunately, SOTA parallel
+IS algorithms do not consistently outperform comparison-
+based sorting algorithms. One key reason is the inherent
+difficulty of dealing with duplicate keys in integer sorts.
+
+For example, samplesort can skip a recursive subproblem be-
+tween two equal pivots; similarly, quicksort can separate
+keys equal to the pivot to avoid further processing them.
+
+NOTE ::
+no existing paral-
+lel IS implementation can benefit from duplicate keys in a
+general (provable) and non-trivial manner1.
+
+
+In this paper, we study parallel integer
+sort to overcome the aforementioned challenges both in the-
+ory and in practice. In theory, we answer the open question by
+proving that a class of parallel IS algorithms, including Dove-
+tailSort proposed in this paper, have 𝑂(𝑛√︁log 𝑟)work for input
+size 𝑛and key range 0 to 𝑟−1. This is asymptotically better
+than comparison sorts for a large key range 𝑟 = 𝑛𝑜(log 𝑛). This
+explains why the existing parallel IS algorithms outperform
+comparison sorts in practice in many cases. We also show
+that we can achieve polylog(𝑛𝑟)span whp for an unstable
+integer sort, and˜
+𝑂(2√log 𝑟)span for a class of practical stable
+parallel IS algorithms, such as our new DovetailSort and the
+integer sort in ParlayLib [9]. We also prove that Dovetail-
+Sort has Θ(𝑛)work for some special input distributions with
+heavy duplicates. In addition to the new bounds, our theo-
+retical results (Sec. 4) also explain the choices of parameters
+for many (if not all) practical parallel IS implementations.
+We believe that our theoretical contribution is important
+both for analyzing our own algorithm and for understanding
+parallel integer sort as a general algorithmic problem.
+
+
+
+* Gallatin: A General-Purpose GPU Memory Manager *
+

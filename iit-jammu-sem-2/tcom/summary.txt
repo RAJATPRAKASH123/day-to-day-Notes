@@ -1,0 +1,38 @@
+* Parallel Integer Sort: Theory and Practice *
+----------------------------------------------
+The research paper discusses the major gap in current state of the art parallel algorithms for Sorting.
+Currently, the integer sorting algorithms outperforms comparison sorting algorithms by using the
+integer encoding of keys.
+
+But, theoretical parallel IS algorithms
+with good bounds are quite complicated, and
+researchers are unaware of any implementations of them.
+
+Integer sorting algorithms always doesn't outperform comparison sorting algorithms because of its lack in 
+dealing with duplicate keys efficiently.
+
+For instance, samplesort has ability to skip a recursive subproblem if the pivots are equal; 
+and, quicksort can separate
+keys with equal pivot and remove redundant steps.
+
+The research paper by proposed the solution to these challenges by proving that a set of parallel Integer Sorting
+algorithms, including DovetailSort introduced in this paper, have 𝑂(𝑛√︁log 𝑟) work for data
+size 𝑛 and key range from 0 to 𝑟−1. 
+Moreover, it discussed theoretical results explaining the best set of parameters
+for many practical parallel Integer Sorting algorithms implementations.
+
+* Gallatin: A General-Purpose GPU Memory Manager *
+----------------------------------------------
+For efficiently transfering modern data processing pipelines to GPUs,
+Dynamic memory management plays very critical role.
+Parallism at such a great level with weak memory coherence makes it difficult to build a
+general purpose memory manager on GPUs.
+
+Existing SOTA memory managers i.e. Ouroboros and Reg-Eff uses traditional linear data structures - arrays and
+linked lists to deal with memory objects. Specialized pipelines are build by them with fixed allocation sizes
+and depends on CUDA allocator when they have to manage larger ones.
+
+The paper proposes Gallatin, a van Emde Boas (vEB) tree data structure based dynamic memory manager to efficiently manage
+and suppport allocations of any size. This highly-concurrent GPU implemen-
+tation of the vEB tree supports constant time insertions, deletions,
+and successor operations for a given memory size.

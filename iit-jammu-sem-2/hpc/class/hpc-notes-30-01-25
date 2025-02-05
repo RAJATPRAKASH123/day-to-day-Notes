@@ -1,0 +1,12 @@
+We don't calculate cost for whole algorithm, 
+we just are interested in a part of algorithm which is running parallely.
+
+: Nick's Class :
+
+Theorem - NC <= P
+
+more operations in parallel algorithm, but cost will get reduced due to availability
+of multiple processors.
+
+work : amount of operations
+

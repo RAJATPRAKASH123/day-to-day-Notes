@@ -1,0 +1,27 @@
+PRAM model ✅ 
+
+P A Mn , n > 1
+
+- If our algorithm works properly on #machines 1 ---> n
+- It should be no worse than math.ceil(N/n)
+
+3 important -
+-
+- Optimality Criteria - Cost of seq == Cost of parallel.
+- 
+
+P2 : Sum of nos. in an array [] --- How to do parallel sum???
+-- We have to use some tree like structure, we can use an array to store that tree and get any index whenever required.
+
+EREW PRAM : 
+
+
+What if you have logn processors???
+
+n/log n processors?
+
+
+Application of Tree-like Summation Framework -- Divide n Conquer
+
+
+As copying is done parallely - copying whole array won't have O(n) complexityecx

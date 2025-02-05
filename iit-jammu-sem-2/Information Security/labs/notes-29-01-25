@@ -1,0 +1,12 @@
+1st lab :
+1. Write Vignere Cipher
+2. Write Transposition over Substitution
+
+2nd lab :
+Use Stegnography to hide message, using 
+
+trick : You can have your own character sets and corresponding binary, instead of ASCII representation. It will make the stegnography efficient.
+
+
+try man steghide
+
