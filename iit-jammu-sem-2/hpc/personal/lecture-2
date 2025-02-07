@@ -46,7 +46,7 @@ What is a computer cluster?
 - Set of computers working together can be viewed as a single system.
 - Each node may perform the same task, controlled and scheduled by software.
 
-: Components & Working prniciples :
+: Components & Working principles :
 - Each node(computer as a server) running its own instance of an operating system.
 - nodes use the same hardware and the same OS.
 - The components of a cluster are usually connected to each other through fast
@@ -111,11 +111,11 @@ Distributed Computing :
 - Algorithms for fault-tolerant execution.
 
 Distributed Algorithms : 
-  Precondition -
-    - Distributed system already in place.
-    - We are trying to write (Applications) algorithms which can use this distributed
-      system to solve problems.
-    - We assume underlying distributed system provides fault-free communication, mutual exculsions.
+  Precondition - 
+    - Distributed system already in place. 
+    - We are trying to write (Applications) algorithms which can use this distributed 
+      system to solve problems. 
+    - We assume underlying distributed system provides fault-free communication, mutual exclusions. 
 
   Contents -
     - Algorithms may depend upon timing behaviour of various machines.
@@ -155,4 +155,109 @@ SIMD :
 MISD :
   - Not used for high performance
   - Used for safety-critical/ fault tolerant/ high-precision systems.
-  - Usage 
+  - Usage :
+    - An aircraft with an AMD, an ARM and an INTEL X86 processor
+    - final outcome is decided on the basis of majority vote
+  
+MIMD : Instruction Pool
+  
+  D          |         |
+  A --> PU <-|->  PU <-|
+  T          |         |
+  A --> PU <-|->  PU <-|
+    
+  P
+  O
+  O
+  L
+
+Variation on MIMD -
+1. SPMD / Single Program Multiple Data
+  - Typically multiple processes or threads executing
+    the same program with different inputs.
+  Ex - pthread, OpenMP, MPI program
+
+2. MPMD / Multiple Programs Multiple Data
+  - Different programs run on different machines 
+  - Usually, a master program and multiple instances of 
+    slave (also called as worker) programs
+  - Master delegates work to slaves
+  - Master monitors & control slaves, assign tasks, 
+    aborting slaves, etc.
+  - Possibility of more than one master program, 
+    and also other kind organization
+
+Performance - 
+Depends on the response time, throughput and execution time of a computer system.
+
+Response Time/ Wall-time : 
+- time from start to completion of a task.
+- also includes :
+  - OS overhead.
+  - Waiting for I/O and other processes.
+  - Accessing disk and memory.
+  - Time spent executing on the CPU or execution time.
+  - Throughput is the total amount of work done in given time.
+
+: Execution time and Performance :
+Execution time is the total time a CPU spends computing
+on a given task 
+* It excludes time for I/O or running other programs.
+
+
+* Execution time : Total time a CPU spends computing on a given task.
+  - It excludes time for I/O or running other programs.
+  - This is also referred to as simply CPU time.
+
+Performance = 1/ Execution Time
+
+
+* With only one processor (computing unit)
+  - Response time >= Execution time
+  - If (Response time == Execution time ){
+    no OS overhead, 
+    no I/O waiting,
+    no other process has put any overhead in the system.
+  }
+
+
+* With Multiple Processors( Computing units)
+- Objective : Response time << Execution time
+- Execution is supposed to be distributed in some way to 
+  multiple processing units - such that the task finishes in less time.
+- If (Response time == Execution time 
+means some or all of these {
+  No practical benefit of using multiple processors,
+  various overheads(OS/IO) delaying task completion,
+  Other tasks running on the system may have put overhead
+}
+
+
+How much benefit can we get using multiple processors??
+- Need to do Performance Comparison. 
+- Amdahl's Law
+
+:: Quantification & Definitions::
+* Enhancement : It is any change/ modification in the design and realization of component. % of enhancement
+fE
+
+* Factor of Improvement : It is a ratio that implies the scale of improvement - fI
+
+* Speed-up (S) : It is a measure that tells us how much
+  faster a task will run using the enhanced version of code/machine as opposed to the original machine.
+  S = Runtime with enhancement/ Runtime without enhancement
+  
+
+
+Processor A is faster than processor B 
+
+:: Amdahl's Law ::
+- a mathematical expression used to find the maximum expected improvement to an overall system when only part of the system is improved/enhanced/running in parallel.
+- It is often used in parallel computing to predict the theoretical maximum speed-up using multiple processors.
+- For P parallel processors, we can expect a speedup of P(ideal case)
+- In practice, we get speed-up <= P because:
+  - there are dependencies among instructions/ lines of code
+  - dependent instructions must follow/run in order
+  - enhanced feature may not be used all the time.
+  - maximum number of concurrent instructions (run in parallel) is <= P
+

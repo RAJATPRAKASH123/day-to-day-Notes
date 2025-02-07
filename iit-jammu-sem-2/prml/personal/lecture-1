@@ -1,0 +1,106 @@
+x :  i.e. heavy or light
+
+w : class of fish i.e. salmon or seabass
+
+p(x) : evidence
+
+p(w) : prior probability
+
+p(x | w) is given, bcoz it might be known by other experiments, generalized prob.
+
+p(w | x) : we have to find, i.e. given this situation, what are the chances of 
+            having heavy or light fish (might help pre-ordering Can for supply)
+
+P(error|x) = min [P(ω1|x), P(ω2|x)].
+
+EVIDENCE :
+First note that the evidence, p(x), in Eq. 1 is unimportant as far as
+making a decision is concerned. It is basically just a scale factor that states how
+frequently we will actually measure a pattern with feature value x; its presence in
+Eq. 1 assures us that P(ω1|x) + P(ω2|x) = 1. By eliminating this scale factor, we
+obtain the following completely equivalent decision rule:
+Decide ω1 if p(x|ω1)P(ω1) > p(x|ω2)P(ω2); otherwise decide ω2.
+
+
+posterior =   likelihood * prior / 
+                                /  evidence
+
+p(wj | x) = p(x | wj) * p(wj) /
+                             / p(x)
+
+where p(x) = Sigma(j = 1 to 2)  p(x | wj) * P(wj)
+
+* Let w1, w2, ... wc be the finite set of c states of nature "categories".
+
+* Let alpha1, alpha2, ... alpha_a be the finite set of a possible actions.
+
+there w1, w2, ... wc represent different possible time conditions of the world.
+
+* Loss function : lambda(alpha_i, w_j):
+    This function tells us the penalty (or cost) of taking action alpha_i when the true stae is wj
+
+* Feature vector |x| represents data or observation we have.
+
+* State - Conditional Probability density function 
+    |--> This represents "the probability of observing a feature vector x given the true state is wj"
+
+Example : If we know an email is a spam (wj), what is the probability that it has certain feature 
+         x : set of spammy words ?
+
+Putting it all together : 
+* We have a time state of nature (wj) that we don't know.
+* We observe data(x), which gives us clues.
+* Using probability and loss functions, we "decide the best action (alpha_i) that minimizes expected loss".
+
+P(wj) describes the prior probability that natures is in state wj.
+
+Then the posterior probability P(wj|x) = P(x | wj) * P(wj) / P(x)
+        where P(x) = Sigma(j = 1 to c) P(x | wj ) * P(wj)
+
+
+* Suppose that we observe a particular |x| and that we contemplate taking action alpha_i.
+* But, if the true state of nature is wj, by definition we will incur the loss | lambda(alpha_i|w_j) |
+* Since P(wj | x) is the probability that the true state of nature is wj, the |expected loss| 
+  associated with taking action alpha_i is merely -
+
+Risk : R(alpha_i | x) = Sigma(j=1 to c) lambda(alpha_i | wj). P(wj | x)
+
+| Expected Loss = Risk |
+
+R(alpha_i | x) : Risk of taking action alpha_i
+
+R(alpha_i | x) => Conditional Risk 
+
+
+Overall Risk : 
+R = Integration R(alpha(x) | x). p(x) . dx
+
+Bayes Decision Rule : To minimize the overall risk, compute the conditional risk.
+
+R(alpha_i | x) = Sigma(j = 1 to c) lambda(alpha_i | wj) . P(wj | x)
+  |-> Bayes Risk
+
+
+:: Two Category Classification Problem ::
+
+Here, Action alpha_1 --corresponds--> Deciding that the true state of nature is w1
+
+             alpha_2 --corresponds--> ..                   w2
+
+lambda(alpha_i | wj) => lambda_i_j  } we decide wi but the true state of nature was wj 
+
+We know, R(alpha_i | x) = Sigma(j = 1 to c) lambda(alpha_i | wj) . P(wj | x)
+           |-> R(alpha_1 | x) = lambda_11 * P(w1 | x) + lambda12 * P(w2 | x)
+           |-> R(alpha_2 | x) = lambda_21 * P(w1 | x) + lambda22 * P(w2 | x)
+
+* The fundamental rule is to decide : 
+    |-> w1 if R(alpha_1 | x) < R(alpha_2 | x)
+
+So, R(alpha_1 | x) < R(alpha_2 | x)
+
+lambda_11 * P(w1|x) + lambda_12 * P(w2|x) < lambda_21 * P(w1|x) + lambda_22 * P(w2|x)
+
+lambda_12 * P(w2|x) - lambda_22 * P(w2|x) < lambda_21 * P(w1|x) - lambda_11 * P(w1|x)
+
+(lambda_12 - lambda_22) * P(w2|x) < (lambda_21 - lambda_11) * P(w1|x)
+

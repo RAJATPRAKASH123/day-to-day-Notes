@@ -15,7 +15,7 @@ on a machine, over a geographic region)
 - P1 : Given A[], B[]. Generate C i.e. C[i] = A[i] + B[i]
 - P2 : Find Sum of an Array A[]
 
-: Objervations & Solutions in Seq. : 
+: Observations & Solutions in Seq. : 
 P1 Sequential : add operations are independent of order
 P2 Sequential : add opertns. are dependent, but we we can change the order
                 by taking any permutations.

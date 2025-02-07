@@ -1,0 +1,34 @@
+
+Problem : Find Maximum - CRCW, Using n^2 processors
+NOR is all have to be False
+
+take NOR for each row
+
+To improve : Let's try Pointer Jump
+
+
+If we are using array, why to use linkedlist?? 
+
+in concurrent data structure
+
+we are applying PRAM algorithm in linkedlist
+              ____
+_____________|___|__
+|__|__|__|__|__|_______
+        v        ^
+        |--------|
+
+As we are making linked list on array, we can simply use
+next index instead of pointers.
+
+In sequential time : O(n)
+
+In parallel - n processors.
+Everybody will be pointing to last node in - log(n)
+
+Can I use this to find the rank of list, 
+i.e. no. of nodes to the end of the list.
+- sequential - using stack/recursion
+
+how to do it in logn???
+
