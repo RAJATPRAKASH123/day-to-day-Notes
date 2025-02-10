@@ -1,0 +1,40 @@
+Very Important Link - https://cheatsheetseries.owasp.org/index.html
+
+- user/admin login
+- authentication tokens
+- certificates
+- cache
+- ddos attack prevention
+- malicious IP address detection
+- prohibit web scraping
+- HTTPS encryption?
+- stripe for the transactions and an ssl cert for encryption
+- backend calls secure and private.
+- if you are using db, backend, frontend
+    - inside/internal communication should also be on http
+- more the static pages are there, it is more secure. as noone can harm  you with static pages.
+- admin can be accessed using reverse proxy (i.e. using vpn)
+    - i.e. only through some IP range can be accessed by vpn
+    - for this you have to create your own vpn.
+        - on VM, set up openvpn/wireguard protocol
+- Strong password policy
+- Privacy policy
+- session timeout (https://cheatsheetseries.owasp.org/index.html)
+
+Let's encrypt : to create a certificate. 
+        - not self signed, but from CA
+
+
+
+
+HTTPS encryption: Make sure the website has HTTPS encryption enabled. This ensures that any data exchanged between your browser and the website is encrypted and cannot be intercepted by hackers.
+
+SSL certificate: A website that uses SSL (Secure Sockets Layer) encryption will have an SSL certificate. Look for the padlock icon in the address bar of your browser to confirm that the SSL certificate is valid.
+
+Two-factor authentication: This is an additional layer of security that requires you to provide two forms of identification before accessing certain parts of the website.
+
+Regular software updates: Websites that are regularly updated with the latest software patches are less likely to be vulnerable to security threats.
+
+Strong password policy: Websites that enforce strong password policies, such as requiring a combination of letters, numbers, and special characters, are less vulnerable to brute-force attacks.
+
+Privacy policy: Look for a clear and concise privacy policy that outlines how the website collects and uses your data.

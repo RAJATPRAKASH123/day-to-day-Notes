@@ -1,0 +1,105 @@
+:: What is Scalability? ::
+
+- As system grows, the performance starts to degrade
+  unless we adapt it to deal with that growth.
+
+Scalability is - Property of a system to handle a growing amount of load by 
+                 adding resources to the system.
+
+| A system that can continuously evolve to support a growing amount of work is 
+| scalable.
+
+Several dimensions : 
+  - More Users
+  - More Features (adding new payment method)
+  - More Data
+  - More Complexity (a simple application broken into smaller independent systems)
+  - More Geographies
+
+10 common ways to Scale a System : 
+1. Vertical Scaling (Scale up) - 
+  - Adding more power to your existing machines by upgrading server with more RAM,
+    faster CPUs, or additional storage.
+  - A good approach for simpler architectures, but has limitations in how 
+    far you can go.
+
+2. Horizontal Scaling (Scale Out) -
+  - adding more machines to system to spread the workload accross multiple servers.
+  - Often considered the most effective way to scale for large systems.
+  Ex - Netflix uses horizontal scaling for its streaming service, adding more servers
+       to their clusters to handle the growing number of users and data traffic.
+
+3. Load Balancing  - 
+  process of distributing traffic across multiple servers to ensure no single server
+  becomes overwhelmed.
+  Ex - Google employs load balancing extensively across its global infrastructure to 
+  distribute search queries and traffic evenly across its massive server farms.
+
+4. Caching - 
+  - A technique to store frequently accessed data in-memory(like RAM) to reduce the load
+  on the server or database.
+
+  Application ---- Cache
+      |
+      |
+   Database
+
+NOTE : Reddit uses caching to store frequently accessed content like hot posts 
+       and comments so that they can be served quickly without querying the db
+       each time.
+
+5. Content Delivery Networks (CDNs) - 
+
+CDN distributes static assets(images, videos, etc.) closer to users.
+This can reduce latency and result in faster load times.
+
+|Ex - Cloudflare provides CDN services, speeding up website access for users
+|     worldwide by caching content in servers located close to users.
+
+6. Sharding/Partition -
+
+Partitioning means splitting data or functionality across multiple nodes/servers to
+distribute workload and avoid bottlenecks.
+
+  |----------- A-G
+A - Z  ------- H-Q
+  |----------- R-Z
+
+  Ex - Amazon Dynamo DB uses partitioning to distribute data and traffic for its
+      NoSQL database service across many servers, ensuring fast performance and 
+      reliability.
+  
+7. Asynchronous Communication  --
+
+Asynchronous communication means deferring long-running or non-critical tasks 
+to background queues or message brokers.
+
+Ex - Slack uses asynchronous communication for messaging. 
+      When a message is sent, the sender's interface doesn't freeze, it continues
+      to be responsive whie the message is processed and delivered in the background.
+
+8. Microservices Architecture  ---
+
+Micro-services architecture breaks down application into smaller, independent
+services that can be scaled independently.
+
+This improves resilience and allows team to work on specific components in parallel.
+
+Monolith ----> Microservices
+
+Ex - Uber has evolved its architecture into microservices to handle different functions like billing, 
+  notifications, and ride matching independently, allowing for efficient scaling 
+  and rapid development.
+
+9. Auto-Scaling - 
+  - means automatically adjusting the number of active servers based on the current load.
+  - This ensures that the system can handle spikes in traffic without manual intervention.
+
+Ex - AWS Auto Scaling monitors applications and automatically adjusts capacity to maintain
+     steady, predictable performance at the lowest possible cost.
+
+11. Multi-region Deployment - 
+  - Deploy the application in multiple data centers or cloud regions 
+  to reduce latency and improve redundancy.
+  - Example: Spotify uses multi-region deployments to ensure their music streaming service remains highly 
+  available and responsive to users all over the world, regardless of where they are located.

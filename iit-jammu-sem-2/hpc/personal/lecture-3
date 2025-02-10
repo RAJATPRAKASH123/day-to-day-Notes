@@ -1,0 +1,14 @@
+latency    : time needed to complete one operation.
+throughput : number of operations performed per unit time.
+
+reln. : 
+    improving latency, improves throughput 
+    improving throughput doesn't affect latency 
+
+parallel algo : 
+    written for 2 or more processor but can even work with 1 processor 
+
+PRAM : 
+    p processors
+    all accessing sharing RAM 
+    synchronous : all processor running with single clock 

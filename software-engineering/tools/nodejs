@@ -1,0 +1,17 @@
+            NODEJS
+            
+https://betterstack.com/community/questions/how-to-upgrade-node-js-on-macos/
+
+
+Check the currently installed Node.js versions and identify the version you want to install by running:
+
+```nvm ls```
+
+To install the latest version, use the following commands:
+
+```nvm install node --latest-npm```
+
+Once the installation is complete, set the default version:
+
+```nvm alias default node```
+
