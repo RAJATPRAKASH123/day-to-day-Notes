@@ -15,4 +15,95 @@ it was tough to get display/pixels real-time.
 - sony used the "GPU" first time in PS
 - but later was popularized by Nvidia
 
-GPU 
+CPU = DRAM + CACHE + CONTROL + ALU
+    = Every core has its own Cache, its own Control Unit.
+GPU = DRAM + Mini PRAMs
+    = DRAM + L2 Cache + Mini PRAMs, 
+        a group of core has a Cache, a group of core has a Control Unit.
+ 
+
+SRAM = 
+DRAM = ?
+
+DRAM  - work only on up clock cycle 
+DDR - work only on up and down both clock cycle 
+
+CUDA cores, why?
+
+Tensor core - specialized GPU to accelerate matrix operations
+
+nvidia gpgpu layout - by nvidia
+
+                    L2 CACHE
+-----------------------------------------------
+|||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------
+-----------------------------------------------
+|||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------
+                    L2 CACHE
+-----------------------------------------------
+|||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------
+-----------------------------------------------
+|||||||||||||||||||||||||||||||||||||||||||||||
+|||||||||||||||||||||||||||||||||||||||||||||||
+-----------------------------------------------
+                    L2 CACHE
+
+INTEL vs AMD vs NPTEL
+
+                         ---- Nvidia
+                         ---- AMD
+                        ~```` Intel
+         ---------------
+        /
+      /
+-----
+
+
+Memory Bandwidth
+
+CUDA cores : CUDA is a language like C, 
+             - 
+
+In PRAM, you are writing threads, and it got allocated to cores.
+- We will be creating CUDA threads, 
+- and it will get scheduled to CUDA processors.
+- can't run independently, all cores have to run same code,
+    but with different data.
+
+warp : threads in groups that are scheduled together.
+
+Single Instruction, multi thread.
+
+thread divergence???
+
+
+Warp Scheduler : 
+don't create too many threads - in OpenMP
+
+Here, create as many threads you want - in GPU/ in PRAM
+
+No preemption in GPU
+
+CPU stays busy with control of execution
+
+My take for GPU : we are loosing some control, 
+        and strategically trying to schedule work to get it fast. 
+
+We will work on CUDA C.
+
+
+CPU                 co-processor
+|                        |
+|                        |
+system memory-----  device memory
+
+what was the last examlple
+
+for all
+    do a[i] = a[i] ** 2

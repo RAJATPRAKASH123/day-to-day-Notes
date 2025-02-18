@@ -260,4 +260,115 @@ Processor A is faster than processor B
   - dependent instructions must follow/run in order
   - enhanced feature may not be used all the time.
   - maximum number of concurrent instructions (run in parallel) is <= P
+  - more that one memory locations are read simultaneously (in
+    one clock cycle) by by 1 processor, or multiple processors
 
+Exclusivve Read & Concurrent Read
+
+----
+Exclusive Read (ER): no two processors are allowed to read the
+same shared memory cell / location / address simultaneously.
+Concurrent Read (CR): Simultaneous read by multiple processors
+(including all processors) to the same shared memory location are
+allowed.
+----
+
+No consistency issue in ER or CR
+There is no consistency issue with the read (either ER or CR).
+
+----
+
+No consistency issue in ER or CR
+
+Can we write two memory locations simultaneously?
+▶ Perhaps YES - if the hardware (Memory architecture / controller)
+permits.
+Can we write the same memory location by two or more processors
+simultaneously?
+▶ NO - What will be the result? Consistency issue.
+▶ What if all processors want to write the same value - then No Issue.
+
+
+Let's discuss : Exclusive Read & Concurrent Write
+                ER-CW
+
+## Concurrent Write [CW] Variations -
+
+Various methods are used to resolve conflict among the contending
+processors trying to write same memory location.
+
+1. Priority based resolution, or, Priority Concurrent Write.
+▶ Processors are assigned with priorities
+2. Arbitrary/Random resolution, or, Arbitrary Concurrent Write
+▶ one randomly chosen write wins
+3. Common/Same value writing by multiple processors (Common
+▶ Processors are trying to write same value to a memory location.
+
+NOTE : Real memory (computer) system can imitate partially to Common
+CW model - at the best.
+
+
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+
+:: Find an Item in an array ::
+
+Objective - 
+
+We will solve this problem for various PRAM models.
+Item may appear one or multiple times
+Items may be present in unsorted or sorted in the Array
+
+return - true/false if present or absent
+       - first/last/any index where x is present
+
+
+Find x in an unsorted A[]
+
+-- Sequential solution is trivial
+  - take an index = -1, keep updating until it reaches the result
+  - return false, if index == -1 else return true
+
+int low = 0, high = n-1
+
+while (low != high):
+  m = low + (high - low)//2
+  if x == arr[m]:
+    return m
+  else if x > arr[m]:
+    low = m + 1
+  else:
+    high = m - 1
+  
+
+The cost of Sequential algorithm and parallel algorithm in an unsorted array is 
+the same. -- cost optimality???
+
+
+      ## Find Item : Unsorted Array ##
+
+## Find x in Unsorted Array A[] without Duplicate - P1
+
+So, -- All processors are able to write true in one place when if x is present in 
+       array because x can be present at only one place. 

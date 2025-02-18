@@ -1,0 +1,62 @@
+authentication happens in these 3 ways -
+
+device to device [e.g., iot i.e. mutual tls]
+user to device
+user to user
+
+usage of MTLS : 
+you can make your own certificates, sign it and create nodes ...
+
+
+Existence of certificate doesn't prove you are you.
+Existence of private key proves it.
+
+
+premaster secret will get disposed, if master secret/key get 
+expired in like 48 hours
+
+symmetric - substituion + transposition(or permutation)
+            - decided by a key (that makes it hard)
+
+asymmetric - first find hard problem,
+             i.e. factorizing an integer (i.e. large integer 2048 bit)
+            find two prime number a, b i.e. a * b = the integer we took.
+
+Diffie Hellman - working on Key-Exchange algorithm
+    - It created the asymmetric key cryptography.
+
+Euler totient function - 
+
+phi(n) = (p1-1) ** 
+
+phi(p : a prime number ) = p-1
+
+we take primes : p, q
+
+we calculate : p * q
+
+phi(pq) = (p-1) * (q-1)
+
+d is multiplicative inverse of phi(pq)
+
+i.e.   e * d = 1 mod (p-1)(q-1)
+
+e is public key : Exponent
+d is private key 
+
+
+pq i.e. n is Modulus 
+
+ECDHE   
+    - doesn't matter 
+
+better life for public key/ private key.
+
+you don't use them for key exchange, 
+rather key exchange mechanism is used.
+
+- Perfect Forward Secrecy : 
+    No impact will happen by previous things on future
+        - rsa doesn't provide it.
+        - ECDHE provides it.
+    

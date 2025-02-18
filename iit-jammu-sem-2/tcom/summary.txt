@@ -36,3 +36,5 @@ The paper proposes Gallatin, a van Emde Boas (vEB) tree data structure based dyn
 and suppport allocations of any size. This highly-concurrent GPU implemen-
 tation of the vEB tree supports constant time insertions, deletions,
 and successor operations for a given memory size.
+
+

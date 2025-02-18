@@ -11,4 +11,57 @@ parallel algo :
 PRAM : 
     p processors
     all accessing sharing RAM 
-    synchronous : all processor running with single clock 
+    synchronous : all processor running with single clock
+    each processor is exactlly like a random access machine, that can 
+        run sequential algorithm
+    each processor has unique id from some range e.g., [1...p]
+        just a convention, you can take 0...p-1 too
+    
+                Shared RAM 
+    ________________|_____________________
+    |           |           |            |
+    P1          P2          P3           P4
+
+
+Digests More - 
+- Collection of numbered processors.
+- Each processor accesses shared memory cells
+- Each processor can access any shared memory cell in unit time (same
+    time for all processors).
+- Inputs are stored in shared memory cells, outputs also need to be
+    stored in the shared memory
+- Each processor can have local memory (and/or registers) - but those
+    are used only for storing data for one instruction only.
+- The Shared RAM has unbounded number of local memory cells.
+- Each memory cell can hold an integer / data of unbounded size.
+- The instruction set includes operations for: moving data,
+    comparisons, branching, arithmetic and logical operations.
+- Execution starts at the first instruction of the program and terminates
+    when the last instruction is done.
+- Each operation takes one time unit. 
+
+## ?3-phases of instruction processing (model) in PRAM
+1 Read (if any) from a shared memory cell
+2 Execute / Compute / Local computation (if any)
+3 Write (if any) to a shared memory cell
+
+NOTE : All Processors execute these 3-phase of a PRAM instruction
+synchronously
+
+This is a must.
+
+-------------------------
+Phase Synchronization
+-------------------------
+
+All phases are fully synchronized
+It means if P0 is doing read, p1 is also doing the read, and all the
+other processors are doing the read operation only
+## A phase might be idle for a processor but but the processor can’t do any other operation.#
+Also, all reading location maybe different.
+
+:: PRAM - Shared Memory Access Mechanism ::
+
+If hardware (Memory architecture / controller) can permit - reading
+multiple locations simultaneously - that’s all the model needs.
+

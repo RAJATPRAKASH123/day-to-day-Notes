@@ -41,3 +41,144 @@ certificate representation formats :
 - PKCS#12
 
 Even you provide the browser the root certificate, it won't trust you and go via its own trust chain of intermediary CA
+
+
+public key infrastructure : managing public keys and digital certificates.
+
+registration
+generation
+validation
+revokation
+
+certificate authorities
+end entities
+auditing authorities
+clients
+
+certificates
+v1 - 
+v2 - 
+v3 - 
+
+certification revocatioin list : 
+intermediate certificate authority publishes it,
+it publishes the certificate serial numbers as list.
+
+certificate authority : updates it CRL in 6-7 days
+
+RFC 5280 - for X.509 v3 format
+
+RFC is available for every standardized protocols
+
+What is in the RFC, 
+
+v1, v2, v3 certificate classification - based on the paramaters it contains
+and further classification are also there.
+
+RSA with SHA - for us, but in reality there are standardized values that goes
+into the certificates.
+
+PEM format - most popular on the internet to publish certificate.
+
+starts with - 
+___BEGIN CERTIFICATE___
+
+CSR - Certificate Signing Request [CSR]
+
+CSR = entity/subject information, entity by Public Key, signed 
+       --- I am fb.com  ---           
+
+CSR would like to know you are facebook
+    - by solving challenge
+        - give a cryptographic token and publish on their own website
+            - prove that you are owner of that domain.
+
+    if you have access to private key
+        - In CSR, digitally signed by my own private key
+
+
+by raising CSR, get the certificate like above.
+
+
+
+TLS 1.2 - it will take 1.5 RTT (KLS negotiation)
+TLS 1.3 - can do negotiatioin in 0.5 RTT
+
+I intercepted the communication - using TLS 1.2
+
+most of the time both certificates are sent - my certificate , and my intermediate certificate.
+
+bcoz, it already had other two certificates - root and ....
+
+browser performs certificate chain validation
+
+*.wikipedia.org - wildcard certificate
+
+DigiCert - a root certificate authority,
+
+issuer of each certificate - matches the subject of next certificate
+
+i.e.
+
+website(subject) certificate issued by intermediary
+intermediary(subject) certificate issued by root
+
+expect last certificate - as it is self - signed where issuer and subject are same. 
+
+Key Store : contains the certificate, in android/windows
+            - changes after few months or an year when root certificate authority changes
+
+an entity can have multiple certificates, 
+and server will decide one among of it which can be validated by anyone.
+
+complete TLS with same private key.
+
+- multiple certificates - good for high availability 
+
+- load balancing with servers
+
+TLS - used to call end to end encryption
+
+but, nowadays some are doing application encryption over TLS
+
+i.e. ICICI mobile app will have a key, and then pass it to TLS.
+
+what application does chrome runs?
+- HTTP client [Why not HTTPS client?]
+
+TLS is on top of Transport.
+
+First,TCP connection comlete, it asks TLS whether it wants to send some data,
+when TLS connection complete, it asks HTTP whether it wants to send some data,
+
+sending hello means - shows capabilities of 
+                        - symmetric 
+                        - asymmetric
+                        - hashing...
+
+above is known as Cipher Suite
+
+chrome is basically, TLS client
+
+Downgrading attack on TLS - by downgrading the cipher suite and
+    not implementing all the cipher, just using simple ones, 
+    now man in the middle can hear.
+
+NOTE : Nowadays, servers won't connect with client, if client has not 
+        implemented all the cipher suites.
+
+E(PUweb, Ks) <- (4) Client 
+client generate Ks
+Encrypt with Public Key of website
+Ks - Premaster Secret. (not the session key)
+
+Random - client generate ---send to -> server.
+         server generate ---send to -> client.
+
+..... TLS cipher suit got chosen by website and server ....
+
+Now, we move to finally end - to - end encryption.
+
+Why RSA was dropped in TLS 1.3 while TLS 1.2 had RSA, ECC, ECDHA all in options.
+
+In TLS 1.3 you won't ask to choose, directly ECC 

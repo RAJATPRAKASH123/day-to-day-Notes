@@ -1,0 +1,92 @@
+1.1 
+
+1. Open Systems Interconnection (OSI) security architecture :
+    - provides a systematic framework for defining security attacks, 
+      mechanisms and services.
+2. Security Attacks : 
+      passive attacks: like unauthorized reading of a message of file and 
+                traffic analysis or 
+      active ``: modification of messages or files, DOS
+
+3. Security Mechanism : any process that is designed to detect, prevent or 
+          recover from a security attack. 
+          like - encryption algorithms, digital signatures, and authentication protocols.
+
+4. Security services : include authentication, access control, data 
+          confidentiality, data integrity, non-repudiation, and availability.
+
+
+COMPUTER SECURITY : The protection afforded to an automated information system
+          in order to attain the applicable objectives of preserving the 
+          integrity, availability, and confidentiality of information system
+          resources (includes hardware, software, firmware, information/data,
+          and telecommunications)
+
+The Key Objectives :  CIA
+
+1. Confidentiality - 
+    a) Data confidentiality - assures that private or confidential info. is
+                      not made available or disclosed to unauthorized individuals.
+
+    b) Privacy - Assures that individuals control or influence
+                  what info related to them may be collected and stored by 
+                  whom annd to whom that info. may be disclosed.
+2. Integrity - 
+    a) Data Integrity - Assueres that info. and programs are changed only in 
+                  a specified and authorized manner.
+    b) System Integrity - Assures that a system performs its intended function
+                  in an unimpaired manner, free from deliberate or inadvertent
+                  unauthorized manipulation of the system.
+
+3. Availability - 
+    assures - systems work promptly and service is not denied to authorized users.
+
+above is well established, but some in the security field felt the need 
+of these two more
+
+4. Authenticity : Property of being genuine and being able to be verified and 
+            trusted; confidence in the validity of a transmission, a message,
+            or message originator.
+
+5. Accountability: 
+      The security goal that generates the requirement for actions of an
+      entity to be traced uniquely to that entity. This supports 
+      non-repudiation, deterrence, fault isolation, intrusion detection 
+      and prevention, after-action recovery and legal action.
+
+    later use for forensic analysis.
+
+Examples on 
+- Confidentiality : Student's grade info
+- Integrity : doctor must trust the data
+- Availability : stock market prices n all
+
+
+Threat : A potential for violation of security, 
+
+          which exists when there is a circumstance, capability, action or
+          event that could breach security and cause harm. 
+
+      vvi - Threat is a possible danger that might exploit a vulnerability.
+
+Attack : An assault on system security that derives from an intelligent threat;
+          that is, an intelligent act that is deliberate attempt
+          (especially in the sense of a method or technique) to evade
+          security services and violate the security policy of a system.
+
+Passive attacks : 
+
+Active attacks : 
+
+Masquerade - 
+
+Replay - 
+
+Modification of messages -
+
+Denial of Service (DoS) -
+
+-------------------------------------------------------
+Authentication            vs          Data Integrity
+-------------------------------------------------------
+Authen

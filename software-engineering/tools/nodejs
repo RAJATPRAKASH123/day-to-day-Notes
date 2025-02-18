@@ -15,3 +15,5 @@ Once the installation is complete, set the default version:
 
 ```nvm alias default node```
 
+use to remove cache and run 
+- rm -rf .next && pnpm build && pnpm dev 

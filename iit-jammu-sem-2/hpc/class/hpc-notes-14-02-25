@@ -1,0 +1,30 @@
+
+In terms of CPU - we say ALU - which contains lot of sophisticated functions.
+
+heterogenous computing : 
+    - 
+
+NOTE : No I/O in GPUs.
+
+OpenCL - for any kind of co-processor. i.e. GPGPU is one kind of co-processor.
+
+But, CUDA C/C++ is beating everyone when it comes to GPGPU executions.
+
+Basic philosophy of GPGPU Programming : 
+....
+
+When writin code/designing...
+host : CPU
+device: GPU  [ Putting multiple ... ]
+
+Video RAM - VRAM - also a DRAM . Where objective is scanning facility is easy.
+
+Fragmented RAM... Not a single memory.
+
+Networking course - Blocking read from socket/ Non-blocking read from socket
+
+How device knows some task is finished? - by handshaking
+
+synchronous means you will get acknowledgment
+in asynchronous, you don't know...
+
