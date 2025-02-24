@@ -1,0 +1,19 @@
+Gaussian Mixture Models - 
+
+Hierarchical Agglomerative Clustering
+
+How to cluster data given hierarchichal structure?
+
+## Cluster Distances 
+(Min)
+
+Dmin(Ci, Cj) - 
+
+(Max)
+()
+
+If you have to choose k, given 100 points, 
+how will you choose a k???
+
+Density Based scan clustering (DB-Scan)
+

@@ -1,0 +1,63 @@
+
+what are different problems with public announcement?
+public key authority?
+
+typical size of certificate - 1200 to 
+
+- self - signed certificate generation.
+- csr first create then create certificate.
+- one of us become a CA, others become entity
+		- then end identity
+		- question on trust???
+
+we don't use static tokens because we have a well
+known vulnerability :
+
+
+csrf - one of the important vulnerability
+
+
+
+
+* Security Mechanisms : CIA 
+
+* Basic of Encryption - 
+1. substition 
+2. transposition
+3. combination of above
+4. steganography
+
+* Fiestal cipher structure
+
+* DES
+
+*SPN : Subs. Permutation Network
+
+* Permutation : 
+	How AES works
+
+* Problem of Key Exchange
+  - Asymmetric can solve it.
+
+* How public key shared?
+* Certificate authorites
+* HTTPS 
+* Web PKI
+
+* In WEB PKI - we understand Z.509 cert
+*CRL - Certificate Revocation List
+* TLS - 
+	TLS Handshake
+	RSA working and proves?
+	How RSA uses above?
+
+
+Conceptual question from AES, DES???
+
+
+
+
+
+
+
+

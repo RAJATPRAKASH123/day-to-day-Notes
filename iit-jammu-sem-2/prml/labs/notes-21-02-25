@@ -1,0 +1,42 @@
+This code is implementing Bayesian classification using 
+discriminant functions based on multivariate normal distributions
+
+
+We have 12 data points, each with two features (X1, X2).
+The labels array assigns each data point to one of three classes 
+(1, 2, or 3).
+
+The mean vector mu1 is the centroid of all points belonging to class 1.
+mu2 and mu3 are the centroids of class 2 and class 3, respectively.
+overall_mu is the mean of all data points (not used in decision boundaries but useful for general statistics).
+
+np.cov(X.T) computes the covariance matrix for each class.
+Covariance matrices describe how X1 and X2 vary together for each class.
+
+
+
+g(X) = -1/2 * log(Sigma) - 1/2 * (x-mu)T * Sigma inv * (x - mu) + log(P(C))
+
+
+
+Creates a grid of points in the X1-X2 space to visualize decision regions.
+meshgrid generates a 200×200 grid covering a range of values.
+
+Computes discriminant function values for every point in the grid.
+Different prior probabilities are assigned to each class: 0.4, 0.35, 0.25.
+
+Step 7: Assign Each Point to the Class with the Highest Discriminant Function
+python
+Copy
+Edit
+Z = np.argmax(np.dstack((Z1, Z2, Z3)), axis=2)
+Combines the discriminant function values (Z1, Z2, Z3) into a single matrix.
+Assigns each grid point to the class with the highest value.
+
+plt.contourf(X1, X2, Z, alpha=0.5, cmap='viridis')
+plt.colorbar(label='Class regions')
+Fills decision regions with colors based on classification.
+Uses contourf to create a smooth color plot.
+python
+Copy
+Edit

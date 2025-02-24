@@ -1,0 +1,14 @@
+global - launchable from cpu
+
+runtime API - cudaMalloc, cudaFree
+
+shared - inside global, it will be shared variable.
+
+nvcc --- can do both which we used to do individually -
+             compile only device and global code
+
+P1 : reduce the addition 
+
+Experiments by NVIDIA using GPU - optimization strategies.
+
+

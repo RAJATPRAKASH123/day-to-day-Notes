@@ -1,0 +1,23 @@
+Transforming Vector Addition for CPU+GPU
+
+vecAdd<<<1, n>>>            # 1 depends upon machine, we can take it as 1 for whole course
+
+Kernel and CUDA calls are queued.
+
+Neighbourhood sum :
+
+threadIdx is a defined variable in CUDA. 
+
+1, n --> Flat architecture
+
+NOTE : Overwriting will happen, when we have 40 threads but 32 processors
+
+syncthreads()  <--- similar to openMP
+
+PRAM - every processor will do same instruction, 
+      similarly in gpu we too...
+
+:: NOTE ::
+when left = 0 happening, 
+    other processors are not doing anything...
+    
