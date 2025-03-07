@@ -1,0 +1,36 @@
+what is likelihood?
+
+when I plot n samples : 
+
+            ---o----o---o--o-....n-samples------->
+
+Mixture density : composed of component densities.
+
+P(X) = P(w1).N(mu1, sigma1) P(w2).N(mu2, sigma2)
+
+last time when we did likelihood : 
+- we only 
+
+which combination of theta_1 + theta_1 ; I will get maximum likelihood for the entire distribution.
+
+I am gonna write function of maximum likelihood.
+
+If theta1 == theta2, 
+
+... there should be uniqueness...
+
+concept of loglikelihood???
+
+Expectation maximization? 
+        imp - every point i am calculating responsibility factor
+                for each class.
+
+x1 --- r11 responsibility of class 1 to class 2...
+x2 --- 
+
+.
+.
+xn ---
+
+
+practice computation -- midsem examination

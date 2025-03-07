@@ -1,0 +1,78 @@
+ Diffie Hellman - 1976
+
+ Working on Problem like - symmetric key exchange 
+
+RSA - key exchange
+- choose a random value : r
+
+r ^ e mod N
+
+e, N <- Public Parameters --- X.509
+
+(r ^ e mod N) ^ d
+
+
+What Diffie Hellman suggest :
+Choose P : large prime
+
+Generator : g 
+  - primitive root modulo p 
+      -- any g from 1 to p-1
+          -- g^1, g^2, ... g^phi(P) mod P
+          = co primes to P
+
+Below A, B using DH, both knowing (g, P)
+
+(g, P)                                    (g, P)
+-- A --                                   -- B --
+a1 - private key of A             b1 - private key of B
+(g ^ a1) mod P -- Pub1            (g ^ b1) mod P -- Pub2
+
+
+-----------------------(g ^ b1 mod P)^a1  ----------->
+               <--------------- Pub2  -----------
+
+On using brute force, we can see it is a Discrete Logarithm Problem.
+Put Modulus on Logarithm Problem, it will become Discrete Logarithm Problem.
+
+DH algorithm only used for Key Exchange.
+
+vulnerability with DH???
+
+- Man in the middle attack
+
+    A      --- g^a mod P --------------->      B
+                (T) 
+         
+k1 = g^at mod P
+k2 = g^bt mod P
+
+by sending g^t mod P by man in the middle
+
+- Biggest problem : Authentication
+    - 3 ways to solve this problem - 
+      1.cipher suits ?
+      2. 
+      3. Digital signature
+
+      - ex - cipher suits in TLS 
+    ways in which we can solve the problem : 
+      - have a master secret.
+      - 
+
+Diffie HEllman only talks about Key exchange algo.
+
+discuss on bluetooth -- uses Diffie Hellman algo.(on pairing)
+
+Better algorithms are there in 
+
+bluetooth can be cracked using - man in the middle
+
+ECDH(E) is Epharmal... key is short lived
+
+NOTE : RSA DOES NOT HAVE FORWARD SECRECY.
+
+Similar g , a generator that generates all the point on elliptic curve
+
+- addition of two points on eliptic curve. Why????
+

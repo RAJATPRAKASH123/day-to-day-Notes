@@ -1,0 +1,23 @@
+Till now - 
+
+different paradigm for concurrent access.
+
+linkedlist - search, insert and delete
+
+Five options 
+
+contention
+
+locks on every node.
+
+
+:: Lock Free Synchronization ::
+Dont use locks at all, use compareAndSet();
+
+All functions can be written recursively - have a proof 
+, but not feasible/practical to write them.
+
+can't make head null in linkedlist, need to have sentinal nodes
+to put a lock.
+
+:: EVENT Serialization ::

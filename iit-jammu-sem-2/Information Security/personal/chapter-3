@@ -1,0 +1,34 @@
+
+
+Block Cipher - an encryption/decryption scheme in which a block of plaintext is treated
+            as a whole and used to produce a ciphertext block of equal length.
+
+Many block ciphers have a Feistal structure.
+- such a structure consists of a number of identical rounds of processing.
+
+Stream Cipher - encrypts Data Stream 1 bit or 1 Byte at a time.
+
+NOTE: Examples of classical stream ciphers are the autokeyed Vigenère cipher and the
+Vernam cipher. In the ideal case, a one-time pad version of the Vernam cipher would
+be used (Figure 2.7), in which the keystream is as long as the plaintext bit stream
+. 
+
+ for practical reasons, the bit-stream generator must be imple-
+mented as an algorithmic procedure,
+the bit-stream generator is a
+key-controlled algorithm and must produce a bit stream that is cryptographically
+strong. Now, the two users need only share the generating key, and each can produce
+the keystream.
+
+Block cipher - a block of plaintext is treated as whole, 
+                and used to produce a cipher text block of equal length
+
+Fiestal Cipher - proposed that we can approximate the ideal block cipher by utilizing the concept of a product 
+                cipher, which is the execution of two or more simple ciphers in sequence in such a way
+                that the final result or product is cryptographically stronger in sequence in such a way
+                that the final result or product is cryptographically stronger than any of the component ciphers.
+
+Shannon 
+    - the frequency distribution of the various letters may be known. 
+    Or there may be words or phrases likely to appear in the message (probable words)
+
