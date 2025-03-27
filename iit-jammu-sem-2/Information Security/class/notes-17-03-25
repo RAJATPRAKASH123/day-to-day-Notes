@@ -1,0 +1,59 @@
+Threat Modeling ::
+
+Pentesting or Penetration Testing? -- after product development.
+
+Threat Modeling? -- pre or during product development.
+
+Pentesting VS Threat Modeling
+
+NOTE : Before development of Software, we can't do Pentesting
+
+BlackBox Pentesting vs GreyBox Pentesting vs WhiteBox Pentesting  
+
+Worksuit - have tool for Pentesting...
+
+Threat Modeling - Security Analysis during product development which adds security during and after product development
+
+Most security concepts are Application Independent.
+
+Data Flow Diagram - 
+                          
+|Admin|    |API|
+                                ___________
+USER ---credentials/HTTP----- > | logging |    <--->      | UserDB |
+                                ~~~~~~~~~~~
+
+STRIDE Model :
+Spoofing - Implement MFA(Multi Factor Authentication) on logging page
+Tampering
+Repudiation
+Information Disclosure
+DoS
+Escalation of Priviledge
+
+DREAD RISK Model : A risk assessment model
+Damage Potential
+Reproducibility
+Exploitability
+Affected Users
+Discoverability
+
+Store the hash of post/user - to prove where it belongs or who had created the post
+        -- Repudiation
+
+discoverability - leave system open to everyone. How easy/tough is to discover the threat?
+
+(D + R + E + A + D)/5 
+
+Minimum Security Requirements???
+
+Active MITM -- Spoofing
+
+DFD terms :
+Rectangular Box - Entity [Source or Sink of Data]
+Oval or Circular - Process in DFD
+                        - Security of data at Rest [i.e. in db]
+Data Flow???
+
+strcpy - not a safe function {depreceated and it introduces buffer overflow}
+

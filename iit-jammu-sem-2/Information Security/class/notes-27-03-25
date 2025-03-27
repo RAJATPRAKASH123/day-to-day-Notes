@@ -1,0 +1,167 @@
+can become an admin 
+several mechanisms - 
+
+what is Priviledge Escalation?
+
+if you see website is returning a "role"
+--real life example :  hpc booking facility 
+
+same role goes to server, just change the role from client side
+and become 'faculty'
+
+it all happens due to bad designing.
+
+we will see priviledge escalation in linux - 
+
+whereis passwd
+
+usr/bin contains the binary i.e. executable
+
+color of files denote which type of they are
+
+red color for some file like
+gpasswd
+psedo
+fusermount
+cshh
+passwd
+
+Why red? 
+
+ls -l passwd
+
+-rwsr -xr -x 1 root root 59976 Feb 6 2024 passwd 
+
+Why 's' in above?
+
+the OS takes out the effective user ID, 
+
+setuid programs.
+
+id tells what are the power of the user,
+
+G -- executing apt -- 1000 id
+r -- executing apt -- 0(as it is set uid program)
+
+Effective UID <--- inherited from UUID
+
+In case of set UID program, 
+owner of apt will execute it (i.e. power of owner will be power of apt program)
+
+
+why normal user create a set uid progarm?
+- to limit/escalate the program access to resources
+
+chmod u+s hashesh 
+
+ls -l hashesh 
+
+gedit setuidprogram.c 
+
+--- setuidprogram.c ---
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(){
+    setuid(0);
+    system("apt update");
+    system("apt upgrade -y");
+    return 0;
+}
+-----------------------
+
+upd - in commandline 
+
+apt update???
+
+c will run effective user id of root, then c program will run 
+
+in above code, the setuid will become 0, only possible to change setuid 
+if you are acting as root
+
+pass injection :: 
+
+relative path in execution. 
+
+If we do not provide absolute path, what happens?
+Ans - We know about Environment Variables,
+        OS looks into path variable
+        Default way, OS look 0 to 100 path variables.
+
+echo $PATH 
+
+developer didn't put path in setuidprogram.c
+
+- one way is to make file setuid, by becoming a root.
+
+user executed -- setuid program -- setuidprogram me -- user tha, ---- jiske paas PATH tha
+
+user ko pta chal gyaa ki setuid program chal rha, user can change the path variable
+ to HOME_GAURAV
+
+ In home/gaurav, he created a file apt , n usme likh diya (/bin/sh)
+
+ ab esne kra executed, n means power badhaa di, pseudo apt 
+
+now, this is priviledge escalation.
+
+user ne interrupt kr diya, by calling its own program.
+
+gcc setuidprogram.c
+ls -l ./a.out
+./a.out 
+--- apt update nhi chlega, bcoz root hi chlaa skta hai apt update.
+su 
+
+root user ho gyaa
+./a.out
+
+let's khrab krte hain
+
+echo $PATH 
+/usr/local/games:/snap/
+
+---- apt ---
+yahaan kyy likha tha?? ek line me bss simple sa program tha
+------------
+
+ls -l apt 
+
+let's change path variable, taaki usr bin me search na ho,
+rather apne path pr ho
+
+PATH = PATH=/home/gauravcdp/passwordcrackinghashcat:$PATH 
+
+echo $PATH ./a.out
+
+gedit
+
+chown root setuidprogram.c 
+chmod u+s setuidprogram.c 
+
+ls -l ./a.out 
+
+./a.out 
+
+
+ab setuid bnaate h 
+chmod u+s ./a.out 
+
+ls -l ./a.out 
+
+./a.out
+
+su gauravcdp 
+
+echo $PATH 
+
+PATH=/home/gauravcdp/passwrod... :$PATH 
+
+id 
+
+let's do priviledge escalation : 
+
+id 
+
+ls -l ./a.out 
+

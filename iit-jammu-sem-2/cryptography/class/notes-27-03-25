@@ -1,0 +1,122 @@
+
+setup() -> (pk, sk)
+b belongs to {0,1} --pk--> 
+
+b belongs to {0,1} <---m0, m1---
+                    |m0|=|m1|
+ ct = Enc(pk, mb)
+         -------ct-------->
+            <----b'------
+
+2 Diffie Hellman
+A(g, p)                                 B(g, p)
+skA = a belongs to Zp          skB = b belongs to Zp
+pkA = g^a                      pkB = g^b 
+             -----pkA----------->
+             <---pkB------------
+
+k' = pkB ^ skA                 k = pkA ^ skB 
+(g^b)^a                        (g^a)^b
+
+g ^ ab                          g ^ ab <--- hard to calculate
+
+whatsapp me double rachet har baar run hota h for each message 
+so, for each message, sending a public key 
+
+DDH problem is hard => ED is IND CPA security
+
+:: Elgamel Encryption ::
+
+setup(1^lambda) --> (pk, sk), (M, ct, K)
+    sk = x belongs to Zp , pk = (g, h) where h = g^x
+Enc(pk, m) ----> ct 
+    s belongs to Zp , u = g^s 
+    v = m * h^s 
+Dec(sk, ct) ---> ct = (u, v)
+    v/(u^x) = (m * h^s)/ (g^s)^x  = m
+            bcoz h = g^x, u = g^s 
+
+DDH <= CDH <= DLP 
+DDH is strongest Assumption and least hard problem among above
+
+possibility -> DLP is hard but CDH is an easy problem
+              ````````````````````````````````````````
+
+Zp* --> CDH is hard but DDH is an easy problem 
+
+EG in Group s.t. DLP is hard but CDH is easy.
+
+Pr[A(g,h)-->x] <= neg
+
+Pr[A'(g, g^a, g^b)--> g^(ab)] > notice
+
+s(s belongs to Zp)
+ct = (u, v)
+    = (g^s, m * h^s)
+
+B(u,v) 
+
+A'(g, h, u) --> g^xs
+
+v/(h^s) = 
+
+
+IF CDH is hard then DLP is hard 
+
+C                  B               A
+  --g, g^a, g^b->
+                     --g, g^a--->
+                     <---a----
+                (g^b)^a
+        <------
+
+EG in Group s.t. CDH is hard but DDH is easy.
+
+
+
+
+Pr[A(g,g^a,g^b)-->g^(ab)] <= neg
+
+Pr[A'(g, g^a, g^b,z)--> z ?= g^(ab)] > notice
+
+
+for attack for below, kon sa wala message encrypt hua hai, that info is enough
+
+C                                  A
+setup()->(pk, sk)
+            ------(g, g^x)---->
+            <----m0, m1------
+            |m0| = |m1|
+b belongs to {0,1}
+ct=(g^s, mb * g^(sx))
+            ----------------->
+              ct = (u, v)
+
+Now, let's look into attack - 
+
+              A'(g, h, u, v/m0)
+              A'(g, g^x, g^s, mb*g^(xs) / m ) --> Z
+
+or, we can understand by -
+(g^s, m0 * g^(xs)/m0) = (g^x, g^xs)
+(g^s, m1 * g^(xs)/m0) = (g^x, g^xs) = g^s , m1/m0 * g ...
+
+In above, 
+A'(g, h, u', v')
+A'(g, g^x, g^s, g^(xs))-=
+
+p = exponential in lambda
+
+
+
+
+DDH is hard => CDH is hard 
+
+C                   B                       A 
+--g, g^a, g^b, z -> z  
+                     ---g, g^a, g^b ----> 
+                     <---- g^(ab) 
+               0 <--- z = g^(ab)
+               1 <----|
+
+

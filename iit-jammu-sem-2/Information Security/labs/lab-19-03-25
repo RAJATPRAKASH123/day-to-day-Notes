@@ -1,0 +1,21 @@
+
+
+
+iijammu.ac.in 
+
+
+key file, or pem file contains both public and private keys.
+
+how to get self-signed certificate?
+
+to make it easy, make the
+
+you have created a cert, you made self signed, you have the key
+
+Now, server connection :::
+
+port 443 vs port 80
+
+refer to server.key {which is key of server},
+
+now you will get TLS on using IIT Jammu.ac.inf
